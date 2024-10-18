@@ -318,7 +318,7 @@ popup_during_fullscreen smart
 
 ## Default border style for new/existing windows
 for_window [class=".*"] border pixel 2
-gaps inner 10
+gaps inner 5
 gaps outer 0
 smart_gaps off
 # smart_borders on
