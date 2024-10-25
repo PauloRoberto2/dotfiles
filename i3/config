@@ -23,7 +23,7 @@ bindsym $mod+shift+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63
 
 # start rofi small
 # bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun#shh -font "Meslo LGM Nerd Font 12"
-bindsym $mod+d exec --no-startup-id rofi -show drun -font "Meslo LGM Nerd Font 12"
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
 ################# how to exit, logoff, suspend, ...
 
@@ -286,31 +286,23 @@ bindsym $mod+less exec --no-startup-id playerctl -p spotify position 0
 bindsym $mod+shift+m exec --no-startup-id playerctl -a volume 0
 
 ################# xbacklight                       
-
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
-
-################# bar toggle                       
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
 
 # bar toggle, hide or show
 bindsym $mod+b bar mode toggle
-
-################# border control                   
 
 # Border control
 default_border pixel 2
 default_floating_border normal
 hide_edge_borders both
-
 bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 
 ################# Popups  control                  
-
 # Popups during fullscreen mode
 popup_during_fullscreen smart
 
 ################# i3 gaps next                     
-
 # Settings for I3 next gap git
 # https://github.com/Airblader/i3/tree/gaps-next
 # delete or uncomment the following lines if you do not have it or do not
@@ -324,7 +316,6 @@ smart_gaps off
 # smart_borders on
 
 ################# i3 gaps change                   
-
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -363,8 +354,6 @@ mode "$mode_gaps_outer" {
 }
 
 ################# picom of i3wm                  
-
-# if you want transparency on non-focused windows, ...
 exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
 
 ################# bar appearance                   
@@ -462,4 +451,4 @@ assign [class="firefox"] 1
 assign [class="[Bb]rave-browser"] 1
 assign [class="discord"] 4
 assign [class="Spotify"] 9
-
+assign [class="protonvpn-app"] 20
