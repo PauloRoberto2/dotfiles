@@ -179,8 +179,7 @@ bindsym F12 exec --no-startup-id xfce4-terminal --drop-down; focus
 
 # System monitor
 bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
-bindsym $mod+r exec --no-startup-id kitty ranger;focus
-bindsym $mod+shift+r exec --no-startup-id kitty sudo ranger;focus
+bindsym $mod+i exec --no-startup-id kitty btop;focus
 
 # settings
 bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
@@ -198,9 +197,6 @@ bindsym control+mod1+u exec --no-startup-id pavucontrol
 # arcolinux does not seem to work
 bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
 
-# pamac-manager
-bindsym control+mod1+p exec --no-startup-id pamac-manager
-
 # xkill
 bindsym --release $mod+Escape exec xkill
 
@@ -210,7 +206,8 @@ bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;focus
 
 # file management
 bindsym $mod+e exec --no-startup-id thunar;focus
-bindsym $mod+i exec --no-startup-id kitty htop;focus
+bindsym $mod+r exec --no-startup-id kitty ranger;focus
+bindsym $mod+shift+r exec --no-startup-id kitty sudo ranger;focus
 
 ##############################
 ####### Screenshots ##########
@@ -450,5 +447,6 @@ assign [class="^KeePassXC"] 10
 assign [class="firefox"] 1
 assign [class="[Bb]rave-browser"] 1
 assign [class="discord"] 4
+assign [class="vesktop"] 4
 assign [class="Spotify"] 9
 assign [class="protonvpn-app"] 20
