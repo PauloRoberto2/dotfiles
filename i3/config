@@ -229,6 +229,7 @@ for_window [class="Blueberry.py"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="Gnome-disks"] floating disable
 for_window [class="^Gnome-font-viewer$"] floating enable
+for_window [class="gnome-calculator"] floating enable
 for_window [class="^Gpick$"] floating enable
 for_window [class="Hexchat"] floating disable
 for_window [class="Imagewriter"] floating enable

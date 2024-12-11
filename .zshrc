@@ -102,7 +102,6 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-
 ####   ARCOLINUX SETTINGS   ####
 export PAGER='most'
 
@@ -122,8 +121,8 @@ export HISTCONTROL=ignoreboth:erasedups
 
 # Make nano the default editor
 
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR='nvim';
+export VISUAL='nvim';
 
 #PS1='[\u@\h \W]\$ '
 
@@ -189,8 +188,7 @@ alias merge="xrdb -merge ~/.Xresources"
 # Aliases for software managment
 # pacman
 alias pacman="pacman --color auto"
-alias update="sudo pacman -Syyu"
-alias upd="sudo pacman -Syyu"
+alias update="sudo pacman -Syu && yay -Syu"
 
 # yay as aur helper - updates everything
 alias yayupdt="yay -Syu"
@@ -496,3 +494,5 @@ eval "$(fzf --zsh)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export MANPAGER='nvim +Man!'
