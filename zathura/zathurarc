@@ -1,0 +1,8 @@
+# enable copy to clipboard
+set selection-clipboard clipboard
+
+# side-by-side mode
+map D set "first-page-column 1:1"
+map <C-d> set "first-page-column 1:2"
+
+map H exec "/home/themoon/devel/shellscript/highlight-zathura-with-evince.sh '$FILE' $PAGE"
