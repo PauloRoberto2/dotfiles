@@ -265,8 +265,10 @@ $sup+Shift+KP_Enter $exe_term --drop-down
 #$exec_always  xset s 300 300
 #$exec_always  xset dpms 300 300 300
 $exe_always   numlockx
-$exe          keepassxc
 $exe_always   nm-applet
+$exe          feh --bg-fill --randomize ~/.wallpaper/*
 $exe          xfce4-clipman
 $exe          autotiling
-$exe          feh --bg-fill --randomize ~/.wallpaper/*
+$exe          dunst
+$exe          keepassxc
+$exe          discord
