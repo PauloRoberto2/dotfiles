@@ -2,10 +2,13 @@
 # Variávies
 #------------------------------------------------------------
 set $mod        Mod4
+set $ALT        Mod1
 set $sup        bindsym Mod4
 set $exe        exec --no-startup-id
 set $exe_always exec_always --no-startup-id
 set $is_float   floating enable
+
+# include ~/.config/i3/config.d/*.conf
 
 # Direction keys
 set $ukey Up
@@ -61,6 +64,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl set 10%-"
 
 # default terminal
 set $exe_term exec --no-startup-id env GTK_THEME=Arc-Dark xfce4-terminal
+#set $exe_term exec --no-startup-id kitty
 
 # start dmenu (a program launcher)
 $sup+d $exe rofi -show combi
@@ -114,8 +118,8 @@ $sup+semicolon              split toggle
 $sup+period                 floating toggle
 $sup+comma                  focus mode_toggle
 
-$sup+backslash              layout toggle splitv splith
-$sup+Shift+bar              layout toggle all
+# $sup+backslash              layout toggle splitv splith
+$sup+Shift+backslash              layout toggle all
 $sup+Shift+F11              fullscreen toggle
 
 #screenshot
@@ -190,23 +194,26 @@ for_window [class="[Xx]fce4-terminal"]  title_format "  $ico_terminal  %title"
 
 # Floating defaults
 for_window [class="pavucontrol"]      title_format "$ico_volume %title" $is_float
-for_window [class="gnome-calculator"] $is_float
-for_window [class="[Ll]xappearance"]  $is_float
-for_window [class="transmission"]     $is_float
-for_window [title="ranger"]           $is_float
-for_window [title="btop"]             $is_float
+for_window [class="gnome-calculator"]   $is_float
+for_window [class="transmission"]       $is_float
+for_window [class="[Ll]xappearance"]    $is_float
+for_window [class="[Bb]lueberry.py"]    $is_float
+for_window [class="[Pp]rotonvpn-app"]   $is_float
+for_window [title="ranger"]             $is_float
+for_window [title="btop"]               $is_float
 # doc https://wiki.archlinux.org/title/I3#Default_workspace_for_Spotify
 for_window [class="discord"] move --no-auto-back-and-forth container to workspace $ws4
 for_window [class="Spotify"] move --no-auto-back-and-forth container to workspace $ws9
-for_window [class="keepassxc"] move --no-auto-back-and-forth container to workspace $ws10
+for_window [class="KeePassXC"] move --no-auto-back-and-forth container to workspace $ws10
 
 #------------------------------------------------------------
 # Program launchers
 #------------------------------------------------------------
-$sup+w        $exe firefox
-$sup+e        $exe thunar
-$sup+Shift+e  $exe xfce4-terminal --title="ranger" -e 'ranger'
-$sup+i        $exe xfce4-terminal --title="btop" -e 'btop'
+$sup+w          $exe firefox
+$sup+e          $exe thunar
+$sup+Shift+e    $exe xfce4-terminal --title="ranger" -e 'ranger'
+$sup+i          $exe xfce4-terminal --title="btop" -e 'btop'
+$sup+v          $exe xfce4-popup-clipman
 
 # shutdown - reboot - lock screen
 bindsym Ctrl+Mod1+L $exe betterlockscreen --lock blur
@@ -262,13 +269,15 @@ $sup+Shift+KP_Enter $exe_term --drop-down
 #------------------------------------------------------------
 # Abrir ao inicializar
 #------------------------------------------------------------
-#$exec_always  xset s 300 300
-#$exec_always  xset dpms 300 300 300
-$exe_always   numlockx
-$exe_always   nm-applet
-$exe          feh --bg-fill --randomize ~/.wallpaper/*
-$exe          xfce4-clipman
-$exe          autotiling
-$exe          dunst
-$exe          keepassxc
-$exe          discord
+$exe_always     numlockx
+$exe_always     picom --config ~/.config/i3/picom.conf --vsync --backend glx
+$exe_always     nm-applet
+$exe            xfce4-power-manager
+$exe            xset -dpms s off s noblank
+$exe            feh --bg-fill --randomize ~/Pictures/wallpapers/*
+$exe            blueberry-tray
+$exe            xfce4-clipman
+$exe            autotiling
+$exe            dunst
+$exe            keepassxc
+$exe            discord
