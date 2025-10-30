@@ -69,6 +69,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 #define BROWSER "firefox"
+#define FILEMANAGER "thunar"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -92,8 +93,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_0,      		view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      		tag,            {.ui = ~0 } },
 
-	{ MODKEY|ShiftMask,             XK_q,      		quit,           {1} }, /*Refresh dwm*/
 	{ MODKEY|ShiftMask,             XK_BackSpace, quit,    		    {0} }, /*Quit dwm*/
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      		quit,           {1} }, /*Restart dwm*/
 	{ MODKEY, 					            XK_q,      		killclient,     {0} }, /*Kill window*/
 	{ MODKEY,                       XK_t,      		setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_m,      		setlayout,      {.v = &layouts[2]} },
@@ -106,6 +107,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, 		focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  		tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, 		tagmon,         {.i = +1 } },
+
+/* Tag keys */
 	TAGKEYS(                        XK_1,                      		0)
 	TAGKEYS(                        XK_2,                      		1)
 	TAGKEYS(                        XK_3,                      		2)
@@ -118,6 +121,7 @@ static const Key keys[] = {
 
 /* Application bindings */
 	{ MODKEY,			XK_w,          spawn,      {.v = (const char*[]){ BROWSER, NULL } } },
+	{ MODKEY,			XK_e,          spawn,      {.v = (const char*[]){ FILEMANAGER, NULL } } },
 
 };
 

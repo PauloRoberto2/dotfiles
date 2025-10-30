@@ -10,8 +10,8 @@ static const int systraypinningfailfirst 	= 1;   /* 1: if pinning fails, display
 static const int showsystray        			= 1;        /* 0 means no systray */
 static const int showbar            			= 1;        /* 0 means no bar */
 static const int topbar             			= 1;        /* 0 means bottom bar */
-static const char *fonts[]          			= { "Hack Nerd Font Mono:size=10" };
-static const char dmenufont[]       			= "monospace:size=10";
+static const char *fonts[]          			= { "JetBrainsMono Nerd Font:antialias=true:autohint=true:size=10" };
+static const char dmenufont[]       			= "JetBrainsMono Nerd Font:antialias=true:autohint=true:size=10";
 static const char col_gray1[]       			= "#222222";
 static const char col_gray2[]       			= "#444444";
 static const char col_gray3[]       			= "#bbbbbb";
@@ -68,6 +68,9 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+#define BROWSER "firefox"
+#define FILEMANAGER "thunar"
+
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
@@ -90,8 +93,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_0,      		view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      		tag,            {.ui = ~0 } },
 
-	{ MODKEY|ShiftMask,             XK_q,      		quit,           {1} }, /*Refresh dwm*/
 	{ MODKEY|ShiftMask,             XK_BackSpace, quit,    		    {0} }, /*Quit dwm*/
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      		quit,           {1} }, /*Restart dwm*/
 	{ MODKEY, 					            XK_q,      		killclient,     {0} }, /*Kill window*/
 	{ MODKEY,                       XK_t,      		setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_m,      		setlayout,      {.v = &layouts[2]} },
@@ -104,6 +107,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, 		focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  		tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, 		tagmon,         {.i = +1 } },
+
+/* Tag keys */
 	TAGKEYS(                        XK_1,                      		0)
 	TAGKEYS(                        XK_2,                      		1)
 	TAGKEYS(                        XK_3,                      		2)
@@ -113,6 +118,11 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      		6)
 	TAGKEYS(                        XK_8,                      		7)
 	TAGKEYS(                        XK_9,                      		8)
+
+/* Application bindings */
+	{ MODKEY,			XK_w,          spawn,      {.v = (const char*[]){ BROWSER, NULL } } },
+	{ MODKEY,			XK_e,          spawn,      {.v = (const char*[]){ FILEMANAGER, NULL } } },
+
 };
 
 /* button definitions */
