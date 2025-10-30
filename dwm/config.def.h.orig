@@ -90,9 +90,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_0,      		view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      		tag,            {.ui = ~0 } },
 
-	{ MODKEY|ShiftMask,             XK_q,      		quit,           {1} }, /*Refresh dwm*/
-	{ MODKEY|ShiftMask,             XK_BackSpace, quit,    		    {0} }, /*Quit dwm*/
 	{ MODKEY, 					            XK_q,      		killclient,     {0} }, /*Kill window*/
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      		quit,           {1} }, /*Refresh dwm*/
+	{ MODKEY|ShiftMask,             XK_BackSpace, quit,    		    {0} }, /*Quit dwm*/
 	{ MODKEY,                       XK_t,      		setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_m,      		setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_u,      		setlayout,      {.v = &layouts[3]} },

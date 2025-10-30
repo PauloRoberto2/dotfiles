@@ -42,11 +42,11 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
-static const int refreshrate = 120;  /* refresh rate (per second) for client move/resize */
+static const float mfact     		= 0.55; /* factor of master area size [0.05..0.95] */
+static const int nmaster     		= 1;    /* number of clients in master area */
+static const int resizehints 		= 1;    /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
+static const int refreshrate 		= 120;  /* refresh rate (per second) for client move/resize */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -94,12 +94,12 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_BackSpace, quit,    		    {0} }, /*Quit dwm*/
 	{ MODKEY, 					            XK_q,      		killclient,     {0} }, /*Kill window*/
 	{ MODKEY,                       XK_t,      		setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      		setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      		setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_u,      		setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_o,      		setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  		setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  		togglefloating, {0} },
+	{ MODKEY,												XK_f,	   			togglefullscreen, {0} },
 	{ MODKEY,                       XK_comma,  		focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, 		focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  		tagmon,         {.i = -1 } },
