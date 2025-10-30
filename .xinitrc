@@ -49,4 +49,8 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
 	unset f
 fi
 
-exec dwm
+#exec dwm
+# loop for restart dwm
+while :; do
+    ssh-agent dwm
+done
