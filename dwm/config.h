@@ -142,8 +142,7 @@ static const Key keys[] = {
 	{ MODKEY|Mod1Mask,              XK_7,      incrivgaps,     {.i = +1 } },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_7,      incrivgaps,     {.i = -1 } },
 	{ MODKEY|Mod1Mask,              XK_8,      incrohgaps,     {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_8,      incrohgaps,     {.i = -1 } },
-	{ MODKEY|Mod1Mask,              XK_9,      incrovgaps,     {.i = +1 } },
+	{ MODKEY|Mod1Mask|ShiftMask,    XK_8,      incrohgaps,     {.i = -1 } }, { MODKEY|Mod1Mask,              XK_9,      incrovgaps,     {.i = +1 } },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  togglegaps,     {0} },
 	{ MODKEY|ShiftMask,    					XK_minus,  defaultgaps,    {0} },
@@ -160,8 +159,13 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      		8)
 
 /* Application bindings */
-	{ MODKEY,			XK_w,          spawn,      {.v = (const char*[]){ BROWSER, NULL } } },
-	{ MODKEY,			XK_e,          spawn,      {.v = (const char*[]){ FILEMANAGER, NULL } } },
+	{ MODKEY,												XK_w,         spawn,       {.v = (const char*[]){ BROWSER, NULL } } },
+	{ MODKEY,												XK_e,         spawn,       {.v = (const char*[]){ FILEMANAGER, NULL } } },
+	{ MODKEY|ShiftMask,							XK_e,     	  spawn,       {.v = (const char*[]){ "st", "-e", "ranger", NULL } } },
+
+	/* script launch bindings */
+	{ 0,														XK_Print,     spawn,       SHCMD("screenshot") },
+	{ 0|ShiftMask,									XK_Print,     spawn,       SHCMD("screenshot color") },
 
 };
 
